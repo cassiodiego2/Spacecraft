@@ -42,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setupAcelerometer()
     }
+
     
     override init(size:CGSize){
         
