@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10C60391E0ED293006517B9 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10C60381E0ED293006517B9 /* GameKit.framework */; };
 		F11032C61DFDE66800597BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11032C51DFDE66800597BF6 /* AppDelegate.swift */; };
 		F11032C81DFDE66800597BF6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F11032C71DFDE66800597BF6 /* GameScene.sks */; };
 		F11032CA1DFDE66800597BF6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F11032C91DFDE66800597BF6 /* Actions.sks */; };
@@ -18,10 +19,12 @@
 		F11032E11DFDE66900597BF6 /* SpacecraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11032E01DFDE66900597BF6 /* SpacecraftTests.swift */; };
 		F11032EC1DFDE66900597BF6 /* SpacecraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11032EB1DFDE66900597BF6 /* SpacecraftUITests.swift */; };
 		F11032FA1DFDE6F800597BF6 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11032F91DFDE6F800597BF6 /* GameOverScene.swift */; };
+		F11CAF551E168CB900962CD2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CAF541E168CB900962CD2 /* SettingsViewController.swift */; };
 		F140FC171E0614FE0065C432 /* Spacecraft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F140FC161E0614FE0065C432 /* Spacecraft.mp3 */; };
 		F140FC211E06501E0065C432 /* Shot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F140FC201E06501E0065C432 /* Shot.mp3 */; };
 		F1423F3E1E00581F00E46831 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1423F3D1E00581F00E46831 /* AboutViewController.swift */; };
 		F18750F01E02BE5F00192536 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18750EF1E02BE5F00192536 /* FirstViewController.swift */; };
+		F1F458011E24275000AAEF49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F458001E24275000AAEF49 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10C60381E0ED293006517B9 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		F11032C21DFDE66800597BF6 /* Spacecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spacecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11032C51DFDE66800597BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F11032C71DFDE66800597BF6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -58,13 +62,15 @@
 		F11032EB1DFDE66900597BF6 /* SpacecraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacecraftUITests.swift; sourceTree = "<group>"; };
 		F11032ED1DFDE66900597BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11032F91DFDE6F800597BF6 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		F11CAF541E168CB900962CD2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F140FC161E0614FE0065C432 /* Spacecraft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Spacecraft.mp3; sourceTree = "<group>"; };
-		F140FC1F1E0636E30065C432 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		F140FC201E06501E0065C432 /* Shot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shot.mp3; sourceTree = "<group>"; };
 		F1423F3D1E00581F00E46831 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F18750EF1E02BE5F00192536 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F1E0D2001E04491900D56D1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1E0D2061E044DA400D56D1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F1F458001E24275000AAEF49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F1F458041E24656600AAEF49 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F458011E24275000AAEF49 /* SystemConfiguration.framework in Frameworks */,
+				F10C60391E0ED293006517B9 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +132,7 @@
 				F18750EF1E02BE5F00192536 /* FirstViewController.swift */,
 				F11032CB1DFDE66800597BF6 /* GameScene.swift */,
 				F11032F91DFDE6F800597BF6 /* GameOverScene.swift */,
+				F11CAF541E168CB900962CD2 /* SettingsViewController.swift */,
 				F140FC161E0614FE0065C432 /* Spacecraft.mp3 */,
 				F140FC201E06501E0065C432 /* Shot.mp3 */,
 				F11032CF1DFDE66800597BF6 /* Main.storyboard */,
@@ -155,6 +164,8 @@
 		F16BA0121DFF0105002C4571 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1F458001E24275000AAEF49 /* SystemConfiguration.framework */,
+				F10C60381E0ED293006517B9 /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,7 +239,7 @@
 					F11032C11DFDE66800597BF6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = RPLZ7M7P8X;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -306,6 +317,7 @@
 			files = (
 				F1423F3E1E00581F00E46831 /* AboutViewController.swift in Sources */,
 				F11032CC1DFDE66800597BF6 /* GameScene.swift in Sources */,
+				F11CAF551E168CB900962CD2 /* SettingsViewController.swift in Sources */,
 				F11032CE1DFDE66800597BF6 /* GameViewController.swift in Sources */,
 				F18750F01E02BE5F00192536 /* FirstViewController.swift in Sources */,
 				F11032FA1DFDE6F800597BF6 /* GameOverScene.swift in Sources */,
@@ -350,7 +362,7 @@
 			children = (
 				F11032D01DFDE66800597BF6 /* Base */,
 				F1E0D2061E044DA400D56D1A /* en */,
-				F140FC1F1E0636E30065C432 /* pt-BR */,
+				F1F458041E24656600AAEF49 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -471,15 +483,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cassio Campos (RPLZ7M7P8X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = RPLZ7M7P8X;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Spacecraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1b1f154d-ad48-4565-9a45-56c88a64a003";
-				PROVISIONING_PROFILE_SPECIFIER = "Spacecraft Distribution Profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -490,15 +502,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cassio Campos (RPLZ7M7P8X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = RPLZ7M7P8X;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Spacecraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1b1f154d-ad48-4565-9a45-56c88a64a003";
-				PROVISIONING_PROFILE_SPECIFIER = "Spacecraft Distribution Profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

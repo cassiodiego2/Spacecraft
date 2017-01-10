@@ -9,10 +9,15 @@
 import Foundation
 import SpriteKit
 import UIKit
+import GameKit
 
 class GameOverScene: SKScene {
     
     var Background:SKSpriteNode = SKSpriteNode()
+    
+    //let buttonHome:SKSpriteNode = SKSpriteNode(imageNamed: "back")
+    
+    var viewController: UIViewController?
     
     init(size:CGSize, won:Bool, score:String){
         
@@ -72,6 +77,19 @@ class GameOverScene: SKScene {
         if (Int(score))! > (Int(highscore))!{
             
             UserDefaults.standard.set(score, forKey: "highscore")
+            
+            let leaderboardID = "LeaderboardSpacecraftI"
+            let sScore = GKScore(leaderboardIdentifier: leaderboardID)
+            sScore.value = Int64(score)!
+            
+            GKScore.report([sScore], withCompletionHandler: { (error: Error?) -> Void in
+                if error != nil {
+                    //print(error!.localizedDescription)
+                } else {
+                    //print("Score submitted")
+                    
+                }
+            })
             
         } else {
             
@@ -156,8 +174,12 @@ class GameOverScene: SKScene {
         label6.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.070))
         label6.zPosition = 1
         self.addChild(label6)
+        
+        //buttonHome.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
+        //buttonHome.zPosition = 1
+        //self.addChild(buttonHome)
     
-        //CODE FOR REDIRECT AUTO
+        //CODE FOR REDIRECT AUTO DA VERSAO BETA
         //self.run(SKAction.sequence([SKAction.wait(forDuration: 3.0), SKAction.run({
         //let transtion:SKTransition = SKTransition.flipHorizontal(withDuration: 0.5)
         //let scene:SKScene = GameScene(size: self.size)
@@ -171,12 +193,17 @@ class GameOverScene: SKScene {
         
     }
     
-    override func didMove(to view: SKView) {
-        //self.createButton()
-    }
+    override func didMove(to view: SKView) { }
     
     func highscoreAlreadyExist(key: String) -> Bool {
+        
         return UserDefaults.standard.object(forKey: key) != nil}
+
+    //override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //    let touch = touches.first
+    //    let touchLocation = touch!.location(in: self)
+    //    if buttonHome.contains(touchLocation) { }
+    //}
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first

@@ -8,6 +8,7 @@
 import SpriteKit
 import CoreMotion
 import AudioToolbox.AudioServices
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -92,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if motionManager.isAccelerometerAvailable == true {
             
-            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.accelerometerUpdateInterval = 0.1
             
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler:{
                 
@@ -109,9 +110,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func alreadyExist(key: String) -> Bool {
+        
+        return UserDefaults.standard.object(forKey: key) != nil}
+    
     func setupPlayer(){
         
-        player = SKSpriteNode(imageNamed: "spacecraft")
+        let playerChoosedShip = alreadyExist(key: "ship")
+        
+        if playerChoosedShip == false { UserDefaults.standard.set(0, forKey: "ship") }
+        
+        let ship = UserDefaults.standard.object(forKey: "ship")! as! Int
+        
+        var spritePlayer:String = ""
+
+        if (ship == 0) { spritePlayer = "spacecraft" }
+        
+        else if (ship == 1) { spritePlayer = "spacecraft2" }
+        
+        else { spritePlayer = "spacecraft"}
+        
+        player = SKSpriteNode(imageNamed: spritePlayer)
         player.position = CGPoint(x: self.frame.size.width/2, y: player.size.height/2 + 20)
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width/2)
         player.physicsBody!.isDynamic = true
@@ -265,7 +284,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.run(SKAction.playSoundFileNamed("Shot", waitForCompletion: false))
+        let soundIsOn = UserDefaults.standard.bool(forKey: "soundStatus")
+        
+        if soundIsOn{ self.run(SKAction.playSoundFileNamed("Shot", waitForCompletion: false)) }
         
         //let touch = touches.first
         //let location = touch!.location(in: self.view)
@@ -297,8 +318,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let velocity = 200/1
         
         let moveDuration:Float = Float(self.size.width) / Float(velocity)
-        
-        //let moveDuration:TimeInterval = 0.3
         
         var actionArray = [SKAction]()
       
@@ -342,7 +361,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        if (player.position.x == firstBody.node!.position.x) || (player.position.y == firstBody.node!.position.y) || (player.position.x == thirdBody.node!.position.x) /* || (player.position.y == thirdBody.node!.position.y) */{
+        if (player.position.x == firstBody.node!.position.x) || (player.position.y == firstBody.node!.position.y) || (player.position.x == thirdBody.node!.position.x) || (player.position.y == thirdBody.node!.position.y) {
             
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)

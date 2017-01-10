@@ -2,8 +2,8 @@
 //  FirstViewController.swift
 //  Spacecraft
 //
-//  Created by Diego on 12/12/16.
-//  Copyright © 2016 Cassio Diego. All rights reserved.
+//  Created by Cassio Diego on 12/12/16.
+//  Copyright (c) 2016 Cassio Diego. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
         
         var highscore:String
@@ -29,7 +28,6 @@ class AboutViewController: UIViewController {
         
         if test {
             
-
             highscore = UserDefaults.standard.object(forKey: "highscore")! as! String
             
             if preferredLanguage != "pt-BR" {
@@ -59,11 +57,19 @@ class AboutViewController: UIViewController {
     }
     
     func highscoreAlreadyExist(key: String) -> Bool {
+        
         return UserDefaults.standard.object(forKey: key) != nil}
     
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        
+        return true
+        
     }
     
 }
