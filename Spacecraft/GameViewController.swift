@@ -38,7 +38,7 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-    
+        
     var backgroundMusicPlayer:AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {

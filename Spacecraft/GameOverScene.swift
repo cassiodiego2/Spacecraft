@@ -162,8 +162,7 @@ class GameOverScene: SKScene {
         label5.text = "spacecraft.com.br"
         label5.fontSize = 18
         label5.fontColor = SKColor.yellow
-        label5.position = CGPoint(x: (
-            screenSize.width * 0.50), y: (screenSize.height * 0.100))
+        label5.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.100))
         label5.zPosition = 1
         self.addChild(label5)
         
@@ -174,7 +173,7 @@ class GameOverScene: SKScene {
         label6.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.070))
         label6.zPosition = 1
         self.addChild(label6)
-        
+
         //buttonHome.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
         //buttonHome.zPosition = 1
         //self.addChild(buttonHome)

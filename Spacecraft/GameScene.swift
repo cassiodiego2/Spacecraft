@@ -43,7 +43,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setupAcelerometer()
     }
-
     
     override init(size:CGSize){
         
@@ -101,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 let currentX = self.player.position.x
                 
-                if (data!.acceleration.x < 0) { self.xAcceleration = currentX + CGFloat((data?.acceleration.x)! * 500)}
+                if (data!.acceleration.x < 0) { self.xAcceleration = currentX + CGFloat((data?.acceleration.x)! * 500) }
                     
                 else if (data!.acceleration.x > 0) { self.xAcceleration = currentX + CGFloat((data?.acceleration.x)! * 500) }
                 
@@ -112,22 +111,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func alreadyExist(key: String) -> Bool {
         
-        return UserDefaults.standard.object(forKey: key) != nil}
+        return UserDefaults.standard.object(forKey: key) != nil
+        
+    }
     
     func setupPlayer(){
         
-        let playerChoosedShip = alreadyExist(key: "ship")
-        
-        if playerChoosedShip == false { UserDefaults.standard.set(0, forKey: "ship") }
-        
-        let ship = UserDefaults.standard.object(forKey: "ship")! as! Int
+        let ship = self.getKindShip()
         
         var spritePlayer:String = ""
-
+        
         if (ship == 0) { spritePlayer = "spacecraft" }
-        
+            
         else if (ship == 1) { spritePlayer = "spacecraft2" }
-        
+            
         else { spritePlayer = "spacecraft"}
         
         player = SKSpriteNode(imageNamed: spritePlayer)
@@ -185,8 +182,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let duration = Int(arc4random_uniform(20)) % Int(rangeDuration) + Int(minDuration)
         
-        //let duration = 2
-        
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -rock.size.height), duration:TimeInterval(duration)))
         actionArray.append(SKAction.removeFromParent())
@@ -212,8 +207,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let maxDuration = 6
         let rangeDuration = maxDuration - minDuration
         let duration = Int(arc4random_uniform(20)) % Int(rangeDuration) + Int(minDuration)
-        
-        //let duration = 2
         
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -star.size.height), duration:TimeInterval(duration)))
@@ -282,6 +275,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func getKindShip() -> Int {
+        
+        let playerChoosedShip = alreadyExist(key: "ship")
+        
+        if playerChoosedShip == false { UserDefaults.standard.set(0, forKey: "ship") }
+        
+        return UserDefaults.standard.object(forKey: "ship")! as! Int
+        
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let soundIsOn = UserDefaults.standard.bool(forKey: "soundStatus")
@@ -293,7 +296,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let location = CGPoint(x: player.position.x, y:player.position.y+500)
         
-        let shot:SKSpriteNode = SKSpriteNode(imageNamed: "shot")
+        let ship = self.getKindShip()
+        
+        var spriteShot:String = ""
+        
+        if (ship == 0) { spriteShot = "shot" }
+            
+        else if (ship == 1) { spriteShot = "shot2" }
+            
+        else { spriteShot = "shot"}
+        
+        let shot:SKSpriteNode = SKSpriteNode(imageNamed: spriteShot)
+        
         shot.position = player.position
         shot.physicsBody = SKPhysicsBody(circleOfRadius: shot.size.width/2)
         shot.physicsBody!.isDynamic = false
@@ -355,10 +369,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
 
-        if (firstBody.categoryBitMask & CollisionCategories.shotCategory) != 0 && (secondBody.categoryBitMask & CollisionCategories.rockCategory) != 0 {
-            
-            shotDidCollideWithRock(shot: firstBody.node as! SKSpriteNode, rock: secondBody.node as! SKSpriteNode)
-            
+        if (firstBody.categoryBitMask & CollisionCategories.shotCategory) != 0 && (secondBody.categoryBitMask & CollisionCategories.rockCategory) != 0
+        {
+            if(firstBody.node != nil && secondBody.node != nil){
+                shotDidCollideWithRock(shot: firstBody.node as! SKSpriteNode, rock: secondBody.node as! SKSpriteNode)
+            }
         }
         
         if (player.position.x == firstBody.node!.position.x) || (player.position.y == firstBody.node!.position.y) || (player.position.x == thirdBody.node!.position.x) || (player.position.y == thirdBody.node!.position.y) {
