@@ -234,7 +234,6 @@
 				TargetAttributes = {
 					F11032C11DFDE66800597BF6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = RPLZ7M7P8X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
@@ -486,7 +485,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Spacecraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,7 +508,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Spacecraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
