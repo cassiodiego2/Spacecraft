@@ -15,7 +15,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var scoreLabelBr: UILabel!
-    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -46,6 +46,7 @@ class AboutViewController: UIViewController {
             if preferredLanguage != "pt-BR" {
                 
                 scoreLabel.text = highscore
+                
             } else {
                 
                 scoreLabelBr.text = highscore

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -293,6 +292,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="scoreLabel" destination="sKd-4n-z9K" id="oi9-a7-bVq"/>
+                        <outlet property="scoreLabelBr" destination="sKd-4n-z9K" id="c7E-Fq-A1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffj-to-FYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
