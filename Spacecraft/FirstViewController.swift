@@ -19,12 +19,16 @@ class FirstViewController : UIViewController, GKGameCenterControllerDelegate {
         
         self.authenticateLocalPlayer()
         
+        let test = AlreadyExist(key: "highscore")
+        
         let musicStatus = UserDefaults.standard.object(forKey: "musicStatus")
         if musicStatus == nil { UserDefaults.standard.set(true, forKey: "musicStatus") }
         
         let soundStatus = UserDefaults.standard.object(forKey: "soundStatus")
         if soundStatus == nil { UserDefaults.standard.set(true, forKey: "soundStatus") }
         
+        if test { self.syncScore() }
+
     }
     
     func authenticateLocalPlayer() {
@@ -69,7 +73,34 @@ class FirstViewController : UIViewController, GKGameCenterControllerDelegate {
     
     func AlreadyExist(key: String) -> Bool {
         
-        return UserDefaults.standard.object(forKey: key) != nil}
+        return UserDefaults.standard.object(forKey: key) != nil
+    
+    }
+    
+    func syncScore(){
+        
+        let highscore = UserDefaults.standard.object(forKey: "highscore")! as! String
+        
+        let leaderboardID = "LeaderboardSpacecraftI"
+        
+        let sScore = GKScore(leaderboardIdentifier: leaderboardID)
+        
+        sScore.value = Int64(highscore)!
+        
+        GKScore.report([sScore], withCompletionHandler: { (error: Error?) -> Void in
+            
+            if error != nil {
+                
+                //print(error!.localizedDescription)
+                
+            } else {
+                
+                //print("Score refreshed")
+                
+            }
+        })
+        
+    }
     
     override func didReceiveMemoryWarning() {
         

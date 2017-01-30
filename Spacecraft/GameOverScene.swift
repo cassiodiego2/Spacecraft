@@ -14,9 +14,7 @@ import GameKit
 class GameOverScene: SKScene {
     
     var Background:SKSpriteNode = SKSpriteNode()
-    
-    //let buttonHome:SKSpriteNode = SKSpriteNode(imageNamed: "back")
-    
+
     var viewController: UIViewController?
     
     init(size:CGSize, won:Bool, score:String){
@@ -57,7 +55,6 @@ class GameOverScene: SKScene {
                 scoreLabel = "SCORE: \(score)" as NSString
                 
             }
-            
                 
         }
         
@@ -66,6 +63,7 @@ class GameOverScene: SKScene {
         let test = highscoreAlreadyExist(key: "highscore")
         
         if test {
+            
             highscore = UserDefaults.standard.object(forKey: "highscore")! as! String
             
         } else {
@@ -104,16 +102,6 @@ class GameOverScene: SKScene {
             }            
         }
         
-        if test {
-            
-            highscore = UserDefaults.standard.object(forKey: "highscore")! as! String
-            
-        } else {
-            
-            highscore = "0"
-            
-        }
-        
         self.addChild(Background)
         
         let bgScore:SKSpriteNode = SKSpriteNode(imageNamed: "score2")
@@ -139,7 +127,9 @@ class GameOverScene: SKScene {
         self.addChild(label2)
         
         let label3 = SKLabelNode(fontNamed: "Helvetica")
-        label3.text = "\(highscore)"
+        
+        if Int(score)! < Int(highscore)!{ label3.text = "\(highscore)" }
+        else { label3.text = "\(score)" }
         label3.fontSize = 35
         label3.fontColor = SKColor.white
         label3.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.790))
@@ -168,6 +158,11 @@ class GameOverScene: SKScene {
         
         let label6 = SKLabelNode(fontNamed: "Helvetica")
         label6.text = "contato@cassiodiego.com"
+        if preferredLanguage == "pt-BR" {
+            label6.text = "contato@cassiodiego.com"
+        } else {
+            label6.text = "contact@cassiodiego.com"
+        }
         label6.fontSize = 14
         label6.fontColor = SKColor.yellow
         label6.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.070))
