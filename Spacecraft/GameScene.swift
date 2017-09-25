@@ -16,11 +16,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var motionManager = CMMotionManager()
     var xAcceleration:CGFloat  = 0.0
     
+    var explosion:SKSpriteNode!
+    
     var lastYieldTimeIntervalRock:TimeInterval = TimeInterval()
     var lastUpdateTimerIntervalRock:TimeInterval = TimeInterval()
     
     var lastYieldTimeIntervalStar:TimeInterval = TimeInterval()
     var lastUpdateTimerIntervalStar:TimeInterval = TimeInterval()
+    
+    var lastYieldTimeIntervalAurora:TimeInterval = TimeInterval()
+    var lastUpdateTimerIntervalAurora:TimeInterval = TimeInterval()
     
     var rocksDestroyed:Int = 0
     
@@ -40,12 +45,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         setupPlayer()
-        
+    
         setupAcelerometer()
     }
     
     override init(size:CGSize){
-        
         super.init(size: size)
         
         self.view?.isMultipleTouchEnabled = false
@@ -137,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody!.collisionBitMask = 0
         player.physicsBody!.usesPreciseCollisionDetection = true
         player.physicsBody?.velocity = CGVector(dx: xAcceleration * 900, dy: 0)
-        player.zPosition = 4
+        player.zPosition = 5
         self.addChild(player)
         
     }
@@ -152,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rock.physicsBody!.contactTestBitMask = CollisionCategories.shotCategory
         rock.physicsBody!.contactTestBitMask = CollisionCategories.playerCategory
         rock.physicsBody!.collisionBitMask = 0
-        rock.zPosition = 3
+        rock.zPosition = 4
         
         let minX = rock.size.width/2
         let maxX = self.frame.size.width - rock.size.width/2
@@ -192,7 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let star:SKSpriteNode = SKSpriteNode(imageNamed: "star")
         
-        star.zPosition = 2
+        star.zPosition = 3
         
         let minX = star.size.width/2
         let maxX = self.frame.size.width - star.size.width/2
@@ -215,11 +219,83 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func setupAurora(){
+        
+        let aurora:SKSpriteNode = SKSpriteNode(imageNamed: "aurora-1")
+        
+        aurora.zPosition = 2
+        
+        let minX = aurora.size.width/2
+        let maxX = self.frame.size.width - aurora.size.width/2
+        let rangeX = maxX - minX
+        let position:CGFloat = CGFloat(arc4random()).truncatingRemainder(dividingBy: CGFloat(rangeX)) + CGFloat(minX)
+        
+        aurora.position = CGPoint(x: position, y: self.frame.size.height+aurora.size.height)
+        
+        self.addChild(aurora)
+        
+        let duration = 25
+        var actionArray = [SKAction]()
+        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -aurora.size.height), duration:TimeInterval(duration)))
+        actionArray.append(SKAction.removeFromParent())
+        aurora.run(SKAction.sequence(actionArray))
+        
+    }
+    
+    
+    func setupExplosion(x:CGFloat, y:CGFloat){
+        
+        let explosionTexture1 = SKTexture(imageNamed: "e-1")
+        explosionTexture1.filteringMode = .nearest
+        
+        let explosionTexture2 = SKTexture(imageNamed: "e-2")
+        explosionTexture2.filteringMode = .nearest
+        
+        let explosionTexture3 = SKTexture(imageNamed: "e-3")
+        explosionTexture3.filteringMode = .nearest
+        
+        let explosionTexture4 = SKTexture(imageNamed: "e-4")
+        explosionTexture4.filteringMode = .nearest
+        
+        let explosionTexture5 = SKTexture(imageNamed: "e-5")
+        explosionTexture5.filteringMode = .nearest
+        
+        let explosionTexture6 = SKTexture(imageNamed: "e-6")
+        explosionTexture6.filteringMode = .nearest
+        
+        let explosionTexture7 = SKTexture(imageNamed: "e-7")
+        explosionTexture7.filteringMode = .nearest
+        
+        let explosionTexture8 = SKTexture(imageNamed: "e-8")
+        explosionTexture8.filteringMode = .nearest
+        
+        let explosionTexture9 = SKTexture(imageNamed: "e-9")
+        explosionTexture9.filteringMode = .nearest
+        
+        let anim = SKAction.animate(with: [explosionTexture1, explosionTexture2, explosionTexture3, explosionTexture4, explosionTexture5, explosionTexture6, explosionTexture7, explosionTexture8, explosionTexture9], timePerFrame: 0.06)
+        
+        let boom = SKAction.repeatForever(anim)
+        
+        explosion = SKSpriteNode(texture: explosionTexture1)
+        explosion.setScale(0.6)
+        explosion.position = CGPoint(x: x, y: y)
+        explosion.zPosition = 6
+
+        explosion.run(boom)
+        
+        self.addChild(explosion)
+        
+
+        
+    }
+    
     func updateWithTimeSinceLastUpdate(_ timeSinceLastUpdate:CFTimeInterval){
         
         lastYieldTimeIntervalRock += timeSinceLastUpdate
         
         lastYieldTimeIntervalStar += timeSinceLastUpdate
+        
+        lastYieldTimeIntervalAurora += timeSinceLastUpdate
         
         var speed:Double = 3
         
@@ -237,6 +313,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lastYieldTimeIntervalStar = 0
             
             setupStar()
+        }
+        
+        if (lastYieldTimeIntervalAurora > 5){
+            
+            lastYieldTimeIntervalAurora = 0
+            
+            setupAurora()
         }
         
     }
@@ -344,7 +427,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBegin(_ contact: SKPhysicsContact){
-        
+
         let firstBody:SKPhysicsBody
         
         var secondBody:SKPhysicsBody
@@ -378,13 +461,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (player.position.x == firstBody.node!.position.x) || (player.position.y == firstBody.node!.position.y) || (player.position.x == thirdBody.node!.position.x) || (player.position.y == thirdBody.node!.position.y) {
             
+            setupExplosion(x: player.position.x, y: player.position.y)
+            
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
             
-            let score = scoreLabel.text
-            let transition:SKTransition = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameOverScene:SKScene = GameOverScene(size: self.size, won: false, score: score!)
-            self.view!.presentScene(gameOverScene, transition: transition)
+                let score = scoreLabel.text
+                let transition:SKTransition = SKTransition.flipHorizontal(withDuration: 0.5)
+                let gameOverScene:SKScene = GameOverScene(size: self.size, won: false, score: score!)
+                self.view!.presentScene(gameOverScene, transition: transition)
+            
 
         }
         
@@ -400,7 +486,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func shotDidCollideWithRock(shot:SKSpriteNode, rock:SKSpriteNode){
 
         rock.removeFromParent()
-    
+        
         rocksDestroyed += 1
         
         scoreLabelUpdate(rocksDestroyed)
