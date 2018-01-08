@@ -33,7 +33,7 @@ class GameOverScene: SKScene {
         _ = screenSize.height
         
         Background = SKSpriteNode(imageNamed: "background")
-        Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.700))
+        Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.500))
         
         if (won){
             if preferredLanguage == "pt-BR" {

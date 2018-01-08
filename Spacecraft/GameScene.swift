@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         Background = SKSpriteNode(imageNamed: "background")
         
-        Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.700))
+        Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.500))
         
         Background.zPosition = 1
         
@@ -132,7 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else { spritePlayer = "spacecraft"}
         
         player = SKSpriteNode(imageNamed: spritePlayer)
-        player.position = CGPoint(x: self.frame.size.width/2, y: player.size.height/2 + 20)
+        player.position = CGPoint(x: self.frame.size.width/2, y: player.size.height/2 + 30)
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width/2)
         player.physicsBody!.isDynamic = true
         player.physicsBody!.categoryBitMask = CollisionCategories.playerCategory
@@ -145,6 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player)
         
     }
+
     
     func setupRock(_ rockType:NSString, score:Int){
         
