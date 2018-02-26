@@ -13,10 +13,15 @@ import AVFoundation
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player:SKSpriteNode = SKSpriteNode()
+    var leftJet:SKSpriteNode = SKSpriteNode()
+    var rightJet:SKSpriteNode = SKSpriteNode()
     var motionManager = CMMotionManager()
     var xAcceleration:CGFloat  = 0.0
     
     var explosion:SKSpriteNode!
+    
+    var fire1:SKSpriteNode!
+    var fire2:SKSpriteNode!
     
     var lastYieldTimeIntervalRock:TimeInterval = TimeInterval()
     var lastUpdateTimerIntervalRock:TimeInterval = TimeInterval()
@@ -45,11 +50,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         setupPlayer()
-    
+        
         setupAcelerometer()
+        
+        setupJetLeft(x: self.player.position.x-10, y: self.player.position.y-30)
+        
+        setupJetRight(x: self.player.position.x+10, y: self.player.position.y-30)
+        
     }
     
     override init(size:CGSize){
+        
         super.init(size: size)
         
         self.view?.isMultipleTouchEnabled = false
@@ -76,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(Background)
         
-        scoreLabel.position = CGPoint(x: (screenSize.width * 0.10), y: (screenSize.height * 0.92))
+        scoreLabel.position = CGPoint(x: (screenSize.width * 0.10), y: (screenSize.height * 0.88))
         
         scoreLabel.zPosition = 2
         
@@ -101,14 +112,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler:{
                 
                 data, error in
-                
+
                 let currentX = self.player.position.x
                 
                 if (data!.acceleration.x < 0) { self.xAcceleration = currentX + CGFloat((data?.acceleration.x)! * 500) }
                     
                 else if (data!.acceleration.x > 0) { self.xAcceleration = currentX + CGFloat((data?.acceleration.x)! * 500) }
                 
+                
             })
+            
+            
         }
         
     }
@@ -143,9 +157,278 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.velocity = CGVector(dx: xAcceleration * 900, dy: 0)
         player.zPosition = 5
         self.addChild(player)
+    }
+    
+    func setupJetLeft(x:CGFloat, y:CGFloat){
+        let fire1Texture1 = SKTexture(imageNamed: "f-1")
+        fire1Texture1.filteringMode = .nearest
+        
+        let fire1Texture2 = SKTexture(imageNamed: "f-2")
+        fire1Texture2.filteringMode = .nearest
+        
+        let fire1Texture3 = SKTexture(imageNamed: "f-3")
+        fire1Texture3.filteringMode = .nearest
+        
+        let fire1Texture4 = SKTexture(imageNamed: "f-4")
+        fire1Texture4.filteringMode = .nearest
+        
+        let fire1Texture5 = SKTexture(imageNamed: "f-5")
+        fire1Texture5.filteringMode = .nearest
+        
+        let fire1Texture6 = SKTexture(imageNamed: "f-6")
+        fire1Texture6.filteringMode = .nearest
+        
+        let fire1Texture7 = SKTexture(imageNamed: "f-7")
+        fire1Texture7.filteringMode = .nearest
+        
+        let fire1Texture8 = SKTexture(imageNamed: "f-8")
+        fire1Texture8.filteringMode = .nearest
+        
+        let fire1Texture9 = SKTexture(imageNamed: "f-9")
+        fire1Texture9.filteringMode = .nearest
+        
+        let fire1Texture10 = SKTexture(imageNamed: "f-10")
+        fire1Texture10.filteringMode = .nearest
+        
+        let fire1Texture11 = SKTexture(imageNamed: "f-11")
+        fire1Texture11.filteringMode = .nearest
+        
+        let fire1Texture12 = SKTexture(imageNamed: "f-12")
+        fire1Texture12.filteringMode = .nearest
+        
+        let fire1Texture13 = SKTexture(imageNamed: "f-13")
+        fire1Texture13.filteringMode = .nearest
+        
+        let fire1Texture14 = SKTexture(imageNamed: "f-14")
+        fire1Texture14.filteringMode = .nearest
+        
+        let fire1Texture15 = SKTexture(imageNamed: "f-15")
+        fire1Texture15.filteringMode = .nearest
+        
+        let fire1Texture16 = SKTexture(imageNamed: "f-16")
+        fire1Texture16.filteringMode = .nearest
+        
+        let fire1Texture17 = SKTexture(imageNamed: "f-17")
+        fire1Texture17.filteringMode = .nearest
+        
+        let fire1Texture18 = SKTexture(imageNamed: "f-18")
+        fire1Texture18.filteringMode = .nearest
+        
+        let fire1Texture19 = SKTexture(imageNamed: "f-19")
+        fire1Texture19.filteringMode = .nearest
+        
+        let fire1Texture20 = SKTexture(imageNamed: "f-20")
+        fire1Texture20.filteringMode = .nearest
+        
+        let fire1Texture21 = SKTexture(imageNamed: "f-21")
+        fire1Texture21.filteringMode = .nearest
+        
+        let fire1Texture22 = SKTexture(imageNamed: "f-22")
+        fire1Texture22.filteringMode = .nearest
+        
+        let fire1Texture23 = SKTexture(imageNamed: "f-23")
+        fire1Texture23.filteringMode = .nearest
+        
+        let fire1Texture24 = SKTexture(imageNamed: "f-24")
+        fire1Texture24.filteringMode = .nearest
+        
+        let fire1Texture25 = SKTexture(imageNamed: "f-25")
+        fire1Texture25.filteringMode = .nearest
+        
+        let fire1Texture26 = SKTexture(imageNamed: "f-26")
+        fire1Texture26.filteringMode = .nearest
+        
+        let fire1Texture27 = SKTexture(imageNamed: "f-27")
+        fire1Texture27.filteringMode = .nearest
+        
+        let fire1Texture28 = SKTexture(imageNamed: "f-28")
+        fire1Texture28.filteringMode = .nearest
+        
+        let fire1Texture29 = SKTexture(imageNamed: "f-29")
+        fire1Texture29.filteringMode = .nearest
+        
+        let fire1Texture30 = SKTexture(imageNamed: "f-30")
+        fire1Texture30.filteringMode = .nearest
+        
+        let fire1Texture31 = SKTexture(imageNamed: "f-31")
+        fire1Texture31.filteringMode = .nearest
+        
+        let fire1Texture32 = SKTexture(imageNamed: "f-32")
+        fire1Texture32.filteringMode = .nearest
+        
+        let fire1Texture33 = SKTexture(imageNamed: "f-33")
+        fire1Texture33.filteringMode = .nearest
+        
+        let fire1Texture34 = SKTexture(imageNamed: "f-34")
+        fire1Texture34.filteringMode = .nearest
+        
+        let fire1Texture35 = SKTexture(imageNamed: "f-35")
+        fire1Texture35.filteringMode = .nearest
+        
+        let fire1Texture36 = SKTexture(imageNamed: "f-36")
+        fire1Texture36.filteringMode = .nearest
+        
+        let fire1Texture37 = SKTexture(imageNamed: "f-37")
+        fire1Texture37.filteringMode = .nearest
+        
+        let fire1Texture38 = SKTexture(imageNamed: "f-38")
+        fire1Texture38.filteringMode = .nearest
+        
+        let fire1Texture39 = SKTexture(imageNamed: "f-39")
+        fire1Texture39.filteringMode = .nearest
+        
+        
+        let anim = SKAction.animate(with: [fire1Texture1, fire1Texture2, fire1Texture3, fire1Texture4, fire1Texture5, fire1Texture6, fire1Texture7, fire1Texture8, fire1Texture9, fire1Texture10, fire1Texture11, fire1Texture12, fire1Texture13, fire1Texture14, fire1Texture15, fire1Texture16, fire1Texture17, fire1Texture18, fire1Texture19, fire1Texture20, fire1Texture21, fire1Texture22, fire1Texture23, fire1Texture24, fire1Texture25, fire1Texture26, fire1Texture27, fire1Texture28, fire1Texture29, fire1Texture30, fire1Texture31, fire1Texture32, fire1Texture33, fire1Texture34, fire1Texture35, fire1Texture36, fire1Texture37, fire1Texture38, fire1Texture39], timePerFrame: 0.09)
+        
+        let boom = SKAction.repeatForever(anim)
+        
+        fire1 = SKSpriteNode(texture: fire1Texture1)
+        fire1.setScale(0.05)
+        fire1.position = CGPoint(x: x, y: y)
+        fire1.zPosition = 4
+        
+        fire1.run(boom)
+        
+        self.addChild(fire1)
         
     }
+    
+    func setupJetRight(x:CGFloat, y:CGFloat){
+        
+        let fire2Texture1 = SKTexture(imageNamed: "f-1")
+        fire2Texture1.filteringMode = .nearest
+        
+        let fire2Texture2 = SKTexture(imageNamed: "f-2")
+        fire2Texture2.filteringMode = .nearest
+        
+        let fire2Texture3 = SKTexture(imageNamed: "f-3")
+        fire2Texture3.filteringMode = .nearest
+        
+        let fire2Texture4 = SKTexture(imageNamed: "f-4")
+        fire2Texture4.filteringMode = .nearest
+        
+        let fire2Texture5 = SKTexture(imageNamed: "f-5")
+        fire2Texture5.filteringMode = .nearest
+        
+        let fire2Texture6 = SKTexture(imageNamed: "f-6")
+        fire2Texture6.filteringMode = .nearest
+        
+        let fire2Texture7 = SKTexture(imageNamed: "f-7")
+        fire2Texture7.filteringMode = .nearest
+        
+        let fire2Texture8 = SKTexture(imageNamed: "f-8")
+        fire2Texture8.filteringMode = .nearest
+        
+        let fire2Texture9 = SKTexture(imageNamed: "f-9")
+        fire2Texture9.filteringMode = .nearest
+        
+        let fire2Texture10 = SKTexture(imageNamed: "f-10")
+        fire2Texture10.filteringMode = .nearest
+        
+        let fire2Texture11 = SKTexture(imageNamed: "f-11")
+        fire2Texture11.filteringMode = .nearest
+        
+        let fire2Texture12 = SKTexture(imageNamed: "f-12")
+        fire2Texture12.filteringMode = .nearest
+        
+        let fire2Texture13 = SKTexture(imageNamed: "f-13")
+        fire2Texture13.filteringMode = .nearest
+        
+        let fire2Texture14 = SKTexture(imageNamed: "f-14")
+        fire2Texture14.filteringMode = .nearest
+        
+        let fire2Texture15 = SKTexture(imageNamed: "f-15")
+        fire2Texture15.filteringMode = .nearest
+        
+        let fire2Texture16 = SKTexture(imageNamed: "f-16")
+        fire2Texture16.filteringMode = .nearest
+        
+        let fire2Texture17 = SKTexture(imageNamed: "f-17")
+        fire2Texture17.filteringMode = .nearest
+        
+        let fire2Texture18 = SKTexture(imageNamed: "f-18")
+        fire2Texture18.filteringMode = .nearest
+        
+        let fire2Texture19 = SKTexture(imageNamed: "f-19")
+        fire2Texture19.filteringMode = .nearest
+        
+        let fire2Texture20 = SKTexture(imageNamed: "f-20")
+        fire2Texture20.filteringMode = .nearest
+        
+        let fire2Texture21 = SKTexture(imageNamed: "f-21")
+        fire2Texture21.filteringMode = .nearest
+        
+        let fire2Texture22 = SKTexture(imageNamed: "f-22")
+        fire2Texture22.filteringMode = .nearest
+        
+        let fire2Texture23 = SKTexture(imageNamed: "f-23")
+        fire2Texture23.filteringMode = .nearest
+        
+        let fire2Texture24 = SKTexture(imageNamed: "f-24")
+        fire2Texture24.filteringMode = .nearest
+        
+        let fire2Texture25 = SKTexture(imageNamed: "f-25")
+        fire2Texture25.filteringMode = .nearest
+        
+        let fire2Texture26 = SKTexture(imageNamed: "f-26")
+        fire2Texture26.filteringMode = .nearest
+        
+        let fire2Texture27 = SKTexture(imageNamed: "f-27")
+        fire2Texture27.filteringMode = .nearest
+        
+        let fire2Texture28 = SKTexture(imageNamed: "f-28")
+        fire2Texture28.filteringMode = .nearest
+        
+        let fire2Texture29 = SKTexture(imageNamed: "f-29")
+        fire2Texture29.filteringMode = .nearest
+        
+        let fire2Texture30 = SKTexture(imageNamed: "f-30")
+        fire2Texture30.filteringMode = .nearest
+        
+        let fire2Texture31 = SKTexture(imageNamed: "f-31")
+        fire2Texture31.filteringMode = .nearest
+        
+        let fire2Texture32 = SKTexture(imageNamed: "f-32")
+        fire2Texture32.filteringMode = .nearest
+        
+        let fire2Texture33 = SKTexture(imageNamed: "f-33")
+        fire2Texture33.filteringMode = .nearest
+        
+        let fire2Texture34 = SKTexture(imageNamed: "f-34")
+        fire2Texture34.filteringMode = .nearest
+        
+        let fire2Texture35 = SKTexture(imageNamed: "f-35")
+        fire2Texture35.filteringMode = .nearest
+        
+        let fire2Texture36 = SKTexture(imageNamed: "f-36")
+        fire2Texture36.filteringMode = .nearest
+        
+        let fire2Texture37 = SKTexture(imageNamed: "f-37")
+        fire2Texture37.filteringMode = .nearest
+        
+        let fire2Texture38 = SKTexture(imageNamed: "f-38")
+        fire2Texture38.filteringMode = .nearest
+        
+        let fire2Texture39 = SKTexture(imageNamed: "f-39")
+        fire2Texture39.filteringMode = .nearest
+        
+        
+        let anim = SKAction.animate(with: [fire2Texture1, fire2Texture2, fire2Texture3, fire2Texture4, fire2Texture5, fire2Texture6, fire2Texture7, fire2Texture8, fire2Texture9, fire2Texture10, fire2Texture11, fire2Texture12, fire2Texture13, fire2Texture14, fire2Texture15, fire2Texture16, fire2Texture17, fire2Texture18, fire2Texture19, fire2Texture20, fire2Texture21, fire2Texture22, fire2Texture23, fire2Texture24, fire2Texture25, fire2Texture26, fire2Texture27, fire2Texture28, fire2Texture29, fire2Texture30, fire2Texture31, fire2Texture32, fire2Texture33, fire2Texture34, fire2Texture35, fire2Texture36, fire2Texture37, fire2Texture38, fire2Texture39], timePerFrame: 0.09)
+        
+        let boom = SKAction.repeatForever(anim)
+        
+        fire2 = SKSpriteNode(texture: fire2Texture1)
+        fire2.setScale(0.05)
+        fire2.position = CGPoint(x: x, y: y)
+        fire2.zPosition = 4
+        
+        fire2.run(boom)
+        
+        self.addChild(fire2)
 
+        
+        
+    }
     
     func setupRock(_ rockType:NSString, score:Int){
         
@@ -273,7 +556,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let explosionTexture9 = SKTexture(imageNamed: "e-9")
         explosionTexture9.filteringMode = .nearest
         
-        let anim = SKAction.animate(with: [explosionTexture1, explosionTexture2, explosionTexture3, explosionTexture4, explosionTexture5, explosionTexture6, explosionTexture7, explosionTexture8, explosionTexture9], timePerFrame: 0.06)
+        let anim = SKAction.animate(with: [explosionTexture1, explosionTexture2, explosionTexture3, explosionTexture4, explosionTexture5, explosionTexture6, explosionTexture7, explosionTexture8, explosionTexture9], timePerFrame: 0.09)
         
         let boom = SKAction.repeatForever(anim)
         
@@ -285,9 +568,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.run(boom)
         
         self.addChild(explosion)
-        
-
-        
     }
     
     func updateWithTimeSinceLastUpdate(_ timeSinceLastUpdate:CFTimeInterval){
@@ -329,7 +609,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let action = SKAction.moveTo(x: xAcceleration, duration: 1)
         
+        let actionJetLeft = SKAction.moveTo(x: xAcceleration-10, duration: 1)
+        
+        let actionJetRight = SKAction.moveTo(x: xAcceleration+10, duration: 1)
+
         self.player.run(action)
+        
+        self.fire1.run(actionJetLeft)
+        
+        self.fire2.run(actionJetRight)
         
         var timeSinceLastUpdate = currentTime - lastUpdateTimerIntervalRock
         

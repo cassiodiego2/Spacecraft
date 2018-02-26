@@ -105,16 +105,22 @@ class GameOverScene: SKScene {
         self.addChild(Background)
         
         let bgScore:SKSpriteNode = SKSpriteNode(imageNamed: "score2")
-        bgScore.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.790))
-
+        bgScore.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.834))
+        bgScore.setScale(0.76)
         bgScore.zPosition = 3
         self.addChild(bgScore)
+        
+        let logo:SKSpriteNode = SKSpriteNode(imageNamed: "SpacecraftLogo")
+        logo.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.690))
+        logo.zPosition = 3
+        logo.setScale(0.22)
+        self.addChild(logo)
         
         let label1 = SKLabelNode(fontNamed: "Helvetica")
         label1.text = message as String
         label1.fontColor = SKColor.white
         label1.fontSize = 33
-        label1.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.580))
+        label1.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.540))
         label1.zPosition = 3
         self.addChild(label1)
         
@@ -122,17 +128,16 @@ class GameOverScene: SKScene {
         label2.text = scoreLabel as String
         label2.fontSize = 20
         label2.fontColor = SKColor.white
-        label2.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.505))
+        label2.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.465))
         label2.zPosition = 4
         self.addChild(label2)
         
         let label3 = SKLabelNode(fontNamed: "Helvetica")
-        
         if Int(score)! < Int(highscore)!{ label3.text = "\(highscore)" }
         else { label3.text = "\(score)" }
         label3.fontSize = 35
         label3.fontColor = SKColor.white
-        label3.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.790))
+        label3.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.830))
         label3.zPosition = 2
         self.addChild(label3)
         
@@ -144,7 +149,7 @@ class GameOverScene: SKScene {
         }
         label4.fontSize = 10
         label4.fontColor = SKColor.white
-        label4.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.400))
+        label4.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.360))
         label4.zPosition = 1
         self.addChild(label4)
         
