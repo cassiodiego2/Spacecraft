@@ -31,8 +31,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var lastYieldTimeIntervalAurora:TimeInterval = TimeInterval()
     var lastUpdateTimerIntervalAurora:TimeInterval = TimeInterval()
+    var lastYieldTimeIntervalYellowStar:TimeInterval = TimeInterval()
     
     var rocksDestroyed:Int = 0
+    //var life:Int = 3
     
     struct CollisionCategories{
         static let rockCategory:UInt32 = 0x1 << 1
@@ -426,8 +428,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(fire2)
 
-        
-        
     }
     
     func setupRock(_ rockType:NSString, score:Int){
@@ -474,6 +474,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -rock.size.height), duration:TimeInterval(duration)))
         actionArray.append(SKAction.removeFromParent())
         rock.run(SKAction.sequence(actionArray))
+    }
+    
+    
+    func setupYellowStar(){
+        
+        let yellowStar:SKSpriteNode = SKSpriteNode(imageNamed: "yellowStar")
+        
+        yellowStar.zPosition = 3
+        
+        let minX = yellowStar.size.width/2
+        let maxX = self.frame.size.width - yellowStar.size.width/2
+        let rangeX = maxX - minX
+        let position:CGFloat = CGFloat(arc4random()).truncatingRemainder(dividingBy: CGFloat(rangeX)) + CGFloat(minX)
+        
+        yellowStar.position = CGPoint(x: position, y: self.frame.size.height+yellowStar.size.height)
+        
+        self.addChild(yellowStar)
+        
+        let minDuration = 8
+        let maxDuration = 10
+        let rangeDuration = maxDuration - minDuration
+        let duration = Int(arc4random_uniform(40)) % Int(rangeDuration) + Int(minDuration)
+        
+        var actionArray = [SKAction]()
+        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -yellowStar.size.height), duration:TimeInterval(duration)))
+        actionArray.append(SKAction.removeFromParent())
+        yellowStar.run(SKAction.sequence(actionArray))
+        
     }
     
     func setupStar(){
@@ -566,7 +594,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.zPosition = 6
 
         explosion.run(boom)
-        
+ 
         self.addChild(explosion)
     }
     
@@ -577,6 +605,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lastYieldTimeIntervalStar += timeSinceLastUpdate
         
         lastYieldTimeIntervalAurora += timeSinceLastUpdate
+        
+        lastYieldTimeIntervalYellowStar += timeSinceLastUpdate
         
         var speed:Double = 3
         
@@ -601,6 +631,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lastYieldTimeIntervalAurora = 0
             
             setupAurora()
+        }
+        
+        if (lastYieldTimeIntervalYellowStar > 1){
+            
+            lastYieldTimeIntervalYellowStar = 0
+            
+            setupYellowStar()
+            
         }
         
     }
@@ -751,16 +789,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (player.position.x == firstBody.node!.position.x) || (player.position.y == firstBody.node!.position.y) || (player.position.x == thirdBody.node!.position.x) || (player.position.y == thirdBody.node!.position.y) {
             
             setupExplosion(x: player.position.x, y: player.position.y)
-            
+        
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
             
+            //life = life - 1
+            //if life == 0 {
                 let score = scoreLabel.text
                 let transition:SKTransition = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameOverScene:SKScene = GameOverScene(size: self.size, won: false, score: score!)
                 self.view!.presentScene(gameOverScene, transition: transition)
+            //}
             
-
         }
         
         if(scoreLabel.text == "99999"){
