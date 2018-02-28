@@ -64,6 +64,7 @@
 		F11CAF541E168CB900962CD2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F140FC201E06501E0065C432 /* Shot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shot.mp3; sourceTree = "<group>"; };
 		F1423F3D1E00581F00E46831 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F16CE7482046036B002A67EB /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F18750EF1E02BE5F00192536 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F19903A41ED0FC0100DCABAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F19903AB1ED1FFD000DCABAF /* Spacecraft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Spacecraft.mp3; sourceTree = "<group>"; };
@@ -272,6 +273,7 @@
 				en,
 				Base,
 				"pt-BR",
+				es,
 			);
 			mainGroup = F11032B91DFDE66800597BF6;
 			productRefGroup = F11032C31DFDE66800597BF6 /* Products */;
@@ -369,6 +371,7 @@
 				F11032D01DFDE66800597BF6 /* Base */,
 				F1E0D2061E044DA400D56D1A /* en */,
 				F1F458041E24656600AAEF49 /* pt-BR */,
+				F16CE7482046036B002A67EB /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

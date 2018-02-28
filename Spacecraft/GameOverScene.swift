@@ -34,21 +34,37 @@ class GameOverScene: SKScene {
         
         Background = SKSpriteNode(imageNamed: "background")
         Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.500))
-        
+        print(preferredLanguage)
         if (won){
+            
             if preferredLanguage == "pt-BR" {
+                
                 message = "VOCÊ GANHOU, PARABÉNS!"
                 scoreLabel = "SCORE: \(score)" as NSString
+                
+            } else if preferredLanguage == "es" || preferredLanguage == "es-ES" || preferredLanguage == "es-HN" || preferredLanguage == "es-CO" || preferredLanguage == "es-PA" || preferredLanguage == "es-SV" || preferredLanguage == "es-CR" || preferredLanguage == "es-PE" || preferredLanguage == "es-BO" || preferredLanguage == "es-GQ" || preferredLanguage == "es-MX" || preferredLanguage == "es-GT" || preferredLanguage == "es-419" || preferredLanguage == "es-AR" || preferredLanguage == "es-PR" || preferredLanguage == "es-US" || preferredLanguage == "es-NI" || preferredLanguage == "es-PY" || preferredLanguage == "es-UY" || preferredLanguage == "es-DO" || preferredLanguage == "es-CL" || preferredLanguage == "es-VE" {
+                
+                message = "TE HAS GANADO, ¡PARABÉNS!"
+                scoreLabel = "SCORE: \(score)" as NSString
+                
             } else {
+                
                 message = "YOU WIN, CONGRATULATIONS!"
                 scoreLabel = "SCORE: \(score)" as NSString
             }
+            
         } else {
             
             if preferredLanguage == "pt-BR" {
 
                 message = "VOCÊ PERDEU"
                 scoreLabel = "PONTUAÇÃO: \(score)" as NSString
+            
+            } else if preferredLanguage == "es" || preferredLanguage == "es-ES" || preferredLanguage == "es-HN" || preferredLanguage == "es-CO" || preferredLanguage == "es-PA" || preferredLanguage == "es-SV" || preferredLanguage == "es-CR" || preferredLanguage == "es-PE" || preferredLanguage == "es-BO" || preferredLanguage == "es-GQ" || preferredLanguage == "es-MX" || preferredLanguage == "es-GT" || preferredLanguage == "es-419" || preferredLanguage == "es-AR" || preferredLanguage == "es-PR" || preferredLanguage == "es-US" || preferredLanguage == "es-NI" || preferredLanguage == "es-PY" || preferredLanguage == "es-UY" || preferredLanguage == "es-DO" || preferredLanguage == "es-CL" || preferredLanguage == "es-VE" {
+            
+                message = "JUEGO TERMINADO"
+                scoreLabel = "PUNTUACIÓN: \(score)" as NSString
+                
             } else {
                 
                 message = "GAME OVER"
@@ -143,9 +159,17 @@ class GameOverScene: SKScene {
         
         let label4 = SKLabelNode(fontNamed: "Helvetica")
         if preferredLanguage == "pt-BR" {
+            
             label4.text = "TOQUE NA TELA PARA RECOMEÇAR"
+            
+            } else if preferredLanguage == "es" || preferredLanguage == "es-ES" || preferredLanguage == "es-HN" || preferredLanguage == "es-CO" || preferredLanguage == "es-PA" || preferredLanguage == "es-SV" || preferredLanguage == "es-CR" || preferredLanguage == "es-PE" || preferredLanguage == "es-BO" || preferredLanguage == "es-GQ" || preferredLanguage == "es-MX" || preferredLanguage == "es-GT" || preferredLanguage == "es-419" || preferredLanguage == "es-AR" || preferredLanguage == "es-PR" || preferredLanguage == "es-US" || preferredLanguage == "es-NI" || preferredLanguage == "es-PY" || preferredLanguage == "es-UY" || preferredLanguage == "es-DO" || preferredLanguage == "es-CL" || preferredLanguage == "es-VE" {
+            
+            label4.text = "TOQUE PARA REINICIAR"
+            
         } else {
+            
             label4.text = "TOUCH TO RESTART"
+            
         }
         label4.fontSize = 10
         label4.fontColor = SKColor.white
@@ -162,12 +186,21 @@ class GameOverScene: SKScene {
         self.addChild(label5)
         
         let label6 = SKLabelNode(fontNamed: "Helvetica")
-        label6.text = "contato@cassiodiego.com"
+        
         if preferredLanguage == "pt-BR" {
+            
             label6.text = "contato@cassiodiego.com"
+            
+            } else if preferredLanguage == "es" || preferredLanguage == "es-ES" || preferredLanguage == "es-HN" || preferredLanguage == "es-CO" || preferredLanguage == "es-PA" || preferredLanguage == "es-SV" || preferredLanguage == "es-CR" || preferredLanguage == "es-PE" || preferredLanguage == "es-BO" || preferredLanguage == "es-GQ" || preferredLanguage == "es-MX" || preferredLanguage == "es-GT" || preferredLanguage == "es-419" || preferredLanguage == "es-AR" || preferredLanguage == "es-PR" || preferredLanguage == "es-US" || preferredLanguage == "es-NI" || preferredLanguage == "es-PY" || preferredLanguage == "es-UY" || preferredLanguage == "es-DO" || preferredLanguage == "es-CL" || preferredLanguage == "es-VE" {
+            
+            label6.text = "contacto@cassiodiego.com"
+            
         } else {
+            
             label6.text = "contact@cassiodiego.com"
+            
         }
+        
         label6.fontSize = 14
         label6.fontColor = SKColor.yellow
         label6.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.070))
