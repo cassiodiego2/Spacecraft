@@ -2,8 +2,8 @@
 //  GameOverScene.swift
 //  Spacecraft
 //
-//  Created by Cassio Diego on 31/05/16.
-//  Copyright (c) 2016 Cassio Diego. All rights reserved.
+//  Created by Cassio Diego Tavares Campos on 31/05/16.
+//  Copyright (c) 2016 Cassio Diego Tavares Campos. All rights reserved.
 //
 
 import Foundation
