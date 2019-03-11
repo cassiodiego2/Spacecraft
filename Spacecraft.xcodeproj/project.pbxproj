@@ -235,9 +235,8 @@
 				TargetAttributes = {
 					F11032C11DFDE66800597BF6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = RPLZ7M7P8X;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -507,10 +506,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Cassio Campos (RPLZ7M7P8X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = RPLZ7M7P8X;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -521,7 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "854c5c07-f60b-4800-8dcb-5b1222e973ad";
-				PROVISIONING_PROFILE_SPECIFIER = "Spacecraft Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -532,10 +531,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Cassio Campos (RPLZ7M7P8X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = RPLZ7M7P8X;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -546,7 +545,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cassiodiego.Spacecraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "854c5c07-f60b-4800-8dcb-5b1222e973ad";
-				PROVISIONING_PROFILE_SPECIFIER = "Spacecraft Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
