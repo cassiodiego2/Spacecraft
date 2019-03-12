@@ -1,4 +1,4 @@
-## Spacecraft team would like to acknowledge the following contributors:
+## Acknowledge to the following Spacecraft contributors:
 
 ##### DESIGN
 - Cassio Diego
