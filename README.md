@@ -5,7 +5,7 @@ A classic and simple spaceship game only for iPhone. The project was started at 
 The Starbot Z0D10 pilots the spaceship Armory and Rinzler fighting the meteor shower in Spacecraft. Control the spaceship using the iPhone accelerometer and touch the screen to shoot the meteors.
 
 ## Additional Information
-- App Store: https://itunes.apple.com/app/spacecraft-i/id1187671385
+- App Store: https://appsto.re/br/z1MYgb.i
 - The Spacecraft web site: https://spacecraft.com.br
 - Twitter profile: https://twitter.com/spacecraftbr
 - Email: mail@cassiodiego.com
