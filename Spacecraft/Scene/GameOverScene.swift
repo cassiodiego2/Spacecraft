@@ -34,7 +34,7 @@ class GameOverScene: SKScene {
         
         Background = SKSpriteNode(imageNamed: "background")
         Background.position = CGPoint(x: (screenSize.width * 0.40), y: (screenSize.height * 0.500))
-        print(preferredLanguage)
+
         if (won){
             
             if preferredLanguage == "pt-BR" {
@@ -206,16 +206,6 @@ class GameOverScene: SKScene {
         label6.position = CGPoint(x: (screenSize.width * 0.50), y: (screenSize.height * 0.070))
         label6.zPosition = 1
         self.addChild(label6)
-
-        //buttonHome.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
-        //buttonHome.zPosition = 1
-        //self.addChild(buttonHome)
-    
-        //CODE FOR REDIRECT AUTO DA VERSAO BETA
-        //self.run(SKAction.sequence([SKAction.wait(forDuration: 3.0), SKAction.run({
-        //let transtion:SKTransition = SKTransition.flipHorizontal(withDuration: 0.5)
-        //let scene:SKScene = GameScene(size: self.size)
-        //self.view!.presentScene(scene, transition: transtion)})]))
         
     }
     
