@@ -161,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                            SKTexture(imageNamed: "f-28"), SKTexture(imageNamed: "f-29"), SKTexture(imageNamed: "f-30"),
                                            SKTexture(imageNamed: "f-31"), SKTexture(imageNamed: "f-32"), SKTexture(imageNamed: "f-33"),
                                            SKTexture(imageNamed: "f-34"), SKTexture(imageNamed: "f-35"), SKTexture(imageNamed: "f-36"),
-                                           SKTexture(imageNamed: "f-37"), SKTexture(imageNamed: "f-138"), SKTexture(imageNamed: "f-39")],
+                                           SKTexture(imageNamed: "f-37"), SKTexture(imageNamed: "f-38"), SKTexture(imageNamed: "f-39")],
                                     timePerFrame: 0.09)
         return anim
     }
