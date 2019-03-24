@@ -1,3 +1,14 @@
+# Project Settings #
+######################
+Spacecraft.xcodeproj/*
 
-Spacecraft.xcodeproj/project.pbxproj
-Spacecraft.xcodeproj/project.xcworkspace/xcuserdata/Diego.xcuserdatad/UserInterfaceState.xcuserstate
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
