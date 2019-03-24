@@ -2,9 +2,10 @@
 //  SettingsViewController.swift
 //  Spacecraft
 //
-//  Created by Cassio Diego on 30/12/16.
-//  Copyright (c) 2016 Cassio Diego. All rights reserved.
+//  Created by Cassio Diego Tavares Campos on 30/12/16.
+//  Copyright (c) 2016 Cassio Diego Tavares Campos. All rights reserved.
 //
+
 import UIKit
 import AVFoundation
 

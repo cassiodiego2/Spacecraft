@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MainViewController.swift
 //  Spacecraft
 //
 //  Created by Cassio Diego Tavares Campos on 12/12/16.
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import GameKit
 
-class FirstViewController : UIViewController, GKGameCenterControllerDelegate {
+class MainViewController : UIViewController, GKGameCenterControllerDelegate {
     
     var gcEnabled = Bool()
     var gcDefaultLeaderBoard = String()
@@ -35,11 +35,11 @@ class FirstViewController : UIViewController, GKGameCenterControllerDelegate {
         
         let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
         
-        localPlayer.authenticateHandler = {(FirstViewController, error) -> Void in
+        localPlayer.authenticateHandler = {(MainViewController, error) -> Void in
             
-            if((FirstViewController) != nil) {
+            if((MainViewController) != nil) {
                 
-                self.present(FirstViewController!, animated: true, completion: nil)
+                self.present(MainViewController!, animated: true, completion: nil)
                 
             } else if (localPlayer.isAuthenticated) {
                 

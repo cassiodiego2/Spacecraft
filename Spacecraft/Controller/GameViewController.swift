@@ -2,8 +2,8 @@
 //  GameViewController.swift
 //  Spacecraft
 //
-//  Created by Cassio Diego on 31/05/16.
-//  Copyright (c) 2016 Training. All rights reserved.
+//  Created by Cassio Diego Tavares Campos on 31/05/16.
+//  Copyright (c) 2016 Casssio Diego Tavares Campos. All rights reserved.
 //
 
 import UIKit
@@ -69,14 +69,6 @@ class GameViewController: UIViewController {
         scene.scaleMode = SKSceneScaleMode.aspectFill
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
-    
-        /* Set the scale mode to scale to fit the window */
-        //scene.size = skView.bounds.size
-        //scene.scaleMode = .scaleToFit;
-        
-        /* Set the scale mode to scale to fit the window */
-        //scene.size = skView.bounds.size
-        //scene.scaleMode = .aspectFit;
         
     }
 

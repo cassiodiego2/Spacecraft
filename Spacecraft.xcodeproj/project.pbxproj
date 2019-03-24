@@ -21,7 +21,7 @@
 		F11CAF551E168CB900962CD2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CAF541E168CB900962CD2 /* SettingsViewController.swift */; };
 		F140FC211E06501E0065C432 /* Shot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F140FC201E06501E0065C432 /* Shot.mp3 */; };
 		F1423F3E1E00581F00E46831 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1423F3D1E00581F00E46831 /* AboutViewController.swift */; };
-		F18750F01E02BE5F00192536 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18750EF1E02BE5F00192536 /* FirstViewController.swift */; };
+		F18750F01E02BE5F00192536 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18750EF1E02BE5F00192536 /* MainViewController.swift */; };
 		F19903A51ED0FC0100DCABAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19903A41ED0FC0100DCABAF /* Assets.xcassets */; };
 		F19903AC1ED1FFD000DCABAF /* Spacecraft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F19903AB1ED1FFD000DCABAF /* Spacecraft.mp3 */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		F140FC201E06501E0065C432 /* Shot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shot.mp3; sourceTree = "<group>"; };
 		F1423F3D1E00581F00E46831 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F16CE7482046036B002A67EB /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F18750EF1E02BE5F00192536 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		F18750EF1E02BE5F00192536 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F19903A41ED0FC0100DCABAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F19903AB1ED1FFD000DCABAF /* Spacecraft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Spacecraft.mp3; sourceTree = "<group>"; };
 		F1E0D2001E04491900D56D1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,20 +122,14 @@
 		F11032C41DFDE66800597BF6 /* Spacecraft */ = {
 			isa = PBXGroup;
 			children = (
-				F11032C91DFDE66800597BF6 /* Actions.sks */,
-				F11032C71DFDE66800597BF6 /* GameScene.sks */,
-				F11032C51DFDE66800597BF6 /* AppDelegate.swift */,
-				F1423F3D1E00581F00E46831 /* AboutViewController.swift */,
-				F11032CD1DFDE66800597BF6 /* GameViewController.swift */,
-				F18750EF1E02BE5F00192536 /* FirstViewController.swift */,
-				F11032CB1DFDE66800597BF6 /* GameScene.swift */,
-				F11032F91DFDE6F800597BF6 /* GameOverScene.swift */,
-				F11CAF541E168CB900962CD2 /* SettingsViewController.swift */,
-				F19903AB1ED1FFD000DCABAF /* Spacecraft.mp3 */,
-				F140FC201E06501E0065C432 /* Shot.mp3 */,
+				F12643A52247C7520011866E /* Controller */,
+				F12643A72247C9B80011866E /* Scene */,
+				F12643A62247C9A90011866E /* Sks */,
+				F12643A42247C62A0011866E /* Sound */,
 				F19903A41ED0FC0100DCABAF /* Assets.xcassets */,
 				F11032CF1DFDE66800597BF6 /* Main.storyboard */,
 				F11032D41DFDE66800597BF6 /* LaunchScreen.storyboard */,
+				F11032C51DFDE66800597BF6 /* AppDelegate.swift */,
 				F1E0D2001E04491900D56D1A /* Info.plist */,
 			);
 			path = Spacecraft;
@@ -157,6 +151,44 @@
 				F11032ED1DFDE66900597BF6 /* Info.plist */,
 			);
 			path = SpacecraftUITests;
+			sourceTree = "<group>";
+		};
+		F12643A42247C62A0011866E /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				F19903AB1ED1FFD000DCABAF /* Spacecraft.mp3 */,
+				F140FC201E06501E0065C432 /* Shot.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		F12643A52247C7520011866E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1423F3D1E00581F00E46831 /* AboutViewController.swift */,
+				F11032CD1DFDE66800597BF6 /* GameViewController.swift */,
+				F18750EF1E02BE5F00192536 /* MainViewController.swift */,
+				F11CAF541E168CB900962CD2 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F12643A62247C9A90011866E /* Sks */ = {
+			isa = PBXGroup;
+			children = (
+				F11032C91DFDE66800597BF6 /* Actions.sks */,
+				F11032C71DFDE66800597BF6 /* GameScene.sks */,
+			);
+			path = Sks;
+			sourceTree = "<group>";
+		};
+		F12643A72247C9B80011866E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F11032CB1DFDE66800597BF6 /* GameScene.swift */,
+				F11032F91DFDE6F800597BF6 /* GameOverScene.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		F16BA0121DFF0105002C4571 /* Frameworks */ = {
@@ -231,10 +263,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Cassio Diego";
+				ORGANIZATIONNAME = "Cassio Diego Tavares Campos";
 				TargetAttributes = {
 					F11032C11DFDE66800597BF6 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = RPLZ7M7P8X;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -322,7 +355,7 @@
 				F11032CC1DFDE66800597BF6 /* GameScene.swift in Sources */,
 				F11CAF551E168CB900962CD2 /* SettingsViewController.swift in Sources */,
 				F11032CE1DFDE66800597BF6 /* GameViewController.swift in Sources */,
-				F18750F01E02BE5F00192536 /* FirstViewController.swift in Sources */,
+				F18750F01E02BE5F00192536 /* MainViewController.swift in Sources */,
 				F11032FA1DFDE6F800597BF6 /* GameOverScene.swift in Sources */,
 				F11032C61DFDE66800597BF6 /* AppDelegate.swift in Sources */,
 			);
@@ -507,9 +540,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RPLZ7M7P8X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -531,10 +564,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RPLZ7M7P8X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
