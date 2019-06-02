@@ -1,7 +1,8 @@
 # Project Settings #
 ######################
 *.xcodeproj/*
-*.xcodeproj/project.pbxproj/*
+*.xcodeproj/project.xcworkspace/*
+*.xcodeproj/project.pbxproj
 
 # OS generated files #
 ######################
