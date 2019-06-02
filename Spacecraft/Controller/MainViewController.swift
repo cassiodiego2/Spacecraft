@@ -33,7 +33,7 @@ class MainViewController : UIViewController, GKGameCenterControllerDelegate {
     
     func authenticateLocalPlayer() {
         
-        let localPlayer: GKLocalPlayer = GKLocalPlayer.local
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.init()
         
         localPlayer.authenticateHandler = {(MainViewController, error) -> Void in
             
