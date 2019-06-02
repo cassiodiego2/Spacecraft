@@ -1,8 +1,8 @@
 # Project Settings #
 ######################
-Spacecraft.xcodeproj/*
-Spacecraft.xcodeproj/project.pbxproj
-Spacecraft.xcodeproj/project.xcworkspace/xcuserdata/Diego.xcuserdatad/UserInterfaceState.xcuserstate
+/Spacecraft.xcodeproj/*
+/Spacecraft.xcodeproj/project.pbxproj
+/Spacecraft.xcodeproj/project.xcworkspace/xcuserdata/Diego.xcuserdatad/UserInterfaceState.xcuserstate
 
 # OS generated files #
 ######################
